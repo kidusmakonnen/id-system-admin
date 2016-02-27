@@ -1,0 +1,113 @@
+<html>
+<head>
+<title>Add Personnel - ID System</title>
+</head>
+<body>
+<div id="sidebar">
+	<p>Controls go here</p>
+</div>
+<div id="main_controls">
+	<div id="navigation_location">
+	</div>
+
+	<form>
+		<div id="form_controls">
+			<div class="form_snippet">
+				<fieldset>
+					<legend>Personal Info</legend>
+					<table>
+						<tr>
+							<td>First Name</td>
+							<td><input type="text" size="30" /></td>
+						</tr>
+						<tr>
+							<td>Last Name</td>
+							<td><input type="text" size="30" /></td>
+						</tr>
+						<tr>
+							<td>Birth Place</td>
+							<td><input type="text" size="30" /></td>
+						</tr>
+						<tr>
+							<td>Birth Date</td>
+							<td><input type="text" size="10" placeholder="MM/DD/YYYY" /></td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+			<div class="form_snippet">
+				<fieldset>
+					<legend>Contact Info</legend>
+					<table>
+						<tr>
+							<td>Home Address</td>
+							<td><input type="textarea" cols="30" rows="4" /></td>
+						</tr>
+						<tr>
+							<td>Home Phone</td>
+							<td><input type="text" size="10" name="home_phone" /></td>
+						</tr>
+						<tr>
+							<td>Mobile Phone</td>
+							<td><input type="text" size="10" name="mobile_phone" /></td>
+						</tr>
+						<tr>
+							<td>Email</td>
+							<td><input type="text" size="30" name="email" /></td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+			<div class="form_snippet">
+				<fieldset>
+					<legend>Professional Info</legend>
+					<table>
+						<tr>
+							<td>Profession</td>
+							<td><input type="text" size="30" name="profession" /></td>
+						</tr>
+						<tr>
+							<td>Experience</td>
+							<td>
+								<input type="number" name="experience" />
+								<select name="experience_mul">
+									<option>Year(s)</option>
+									<option>Month(s)</option>
+									<option>Day(s)</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Hired Department</td>
+							<td>
+								<input type="text" size="20" name="hired_department" />
+							</td>
+						</tr>
+						<tr>
+							<td>Hired Date</td>
+							<td>
+								<input type="text" size="10" name="hired_date" placeholder="MM/DD/YYY" />
+							</td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+			<div clas="form_snippet">
+				<fieldset>
+					<legend>Member Photo</legend>
+					<table>
+						<tr>
+							<td>
+								<img src="placeholder.jpg" alt="photo thumbnail" width="80px" height="80px" />
+							</td>
+							<td><input type="button" value="Upload Photo" id="upload_button" /></td>
+							<td><input type="button" value="Take Photo" id="take_photo_button" /></td>
+						</tr>
+					</table>
+				</fieldset>
+			</div>
+		</div>
+	</form>
+</div>
+</body>
+</html>
