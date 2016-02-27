@@ -15,19 +15,19 @@
 				<table>
 					<tr>
 						<td>First Name</td>
-						<td><input type="text" size="30" /></td>
+						<td><input type="text" size="30" name="first_name" required /></td>
 					</tr>
 					<tr>
 						<td>Last Name</td>
-						<td><input type="text" size="30" /></td>
+						<td><input type="text" size="30" name="last_name" required /></td>
 					</tr>
 					<tr>
 						<td>Birth Place</td>
-						<td><input type="text" size="30" /></td>
+						<td><input type="text" size="30" name="birth_place" required /></td>
 					</tr>
 					<tr>
 						<td>Birth Date</td>
-						<td><input type="text" size="10" placeholder="MM/DD/YYYY" /></td>
+						<td><input type="date" size="10" placeholder="MM/DD/YYYY" name="birth_date" required /></td>
 					</tr>
 				</table>
 			</fieldset>
@@ -50,7 +50,7 @@
 					</tr>
 					<tr>
 						<td>Email</td>
-						<td><input type="text" size="30" name="email" /></td>
+						<td><input type="email" size="30" name="email" required /></td>
 					</tr>
 				</table>
 			</fieldset>
@@ -66,7 +66,7 @@
 					<tr>
 						<td>Experience</td>
 						<td>
-							<input type="number" name="experience" />
+							<input type="number" name="experience" min='0' value='0'  />
 							<select name="experience_mul">
 								<option>Year(s)</option>
 								<option>Month(s)</option>
@@ -94,11 +94,10 @@
 				<legend>Member Photo</legend>
 				<table>
 					<tr>
-						<td>
+						<!--<td>
 							<img src="placeholder.jpg" alt="photo thumbnail" width="80px" height="80px" />
-						</td>
-						<td><input type="button" value="Upload Photo" id="upload_button" /></td>
-						<td><input type="button" value="Take Photo" id="take_photo_button" /></td>
+						</td> -->
+						<td><input type="file" value="Upload Photo" id="upload_button" /></td>
 					</tr>
 				</table>
 			</fieldset>
@@ -106,9 +105,20 @@
 		<div class="form_snippet">
 			<fieldset>
 				<legend>Allowed Into</legend>
-				<p>Allowed into premises:</p>
+<?php
+mysql_connect('localhost','idsystem','idsystem');
+mysql_select_db('test');
+
+$SQL = "SELECT * FROM Premises";
+$RESULT = mysql_query($SQL);
+
+while ($row = mysql_fetch_array($RESULT)) {
+	echo "<input type='checkbox' name='premises[]' /> " .$row['Name'] . "<br />";
+}
+?>
 			</fieldset>
 		</div>
+		<input type="submit" value="Submit" />
 	</div>
 </div>
 </form>
