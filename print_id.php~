@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>Print ID</title>
+</head>
+<body>
+
+<?php
+foreach($_POST as $name => $value) {
+	echo "Name: " . $name . " Value: " . $value . "<br />";
+}
+uploadPhoto();
+function uploadPhoto() {
+	$target_dir = "employee_photos/";
+	$target_file = $target_dir . $_POST['first_name'] . "_" . $_POST['last_name'] . ".jpg";
+
+	if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+		echo "<h1>It worked :D</h1>";
+	} else {
+		echo "<h1>Nope :(</h1>";
+	}
+}
+?>
+
+
+
+</body>
+</html>

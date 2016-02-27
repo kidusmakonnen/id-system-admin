@@ -29,6 +29,11 @@
 						<td>Birth Date</td>
 						<td><input type="date" size="10" placeholder="MM/DD/YYYY" name="birth_date" required /></td>
 					</tr>
+					<tr>
+						<td>Sex</td>
+						<td><input type="radio" name="gender" value="m" checked="checked" />Male 
+						    <input type="radio" name="gender" value="f" />Female
+						</td>
 				</table>
 			</fieldset>
 		</div>
@@ -97,7 +102,7 @@
 						<!--<td>
 							<img src="placeholder.jpg" alt="photo thumbnail" width="80px" height="80px" />
 						</td> -->
-						<td><input type="file" value="Upload Photo" id="upload_button" /></td>
+						<td><input type="file" value="Upload Photo" id="upload_button" name="image" /></td>
 					</tr>
 				</table>
 			</fieldset>

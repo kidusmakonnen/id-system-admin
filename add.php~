@@ -4,7 +4,7 @@
 </head>
 <body>
 
-<form>
+<form action="print_id.php" method="POST" enctype="multipart/form-data">
 <div id="main_controls">
 	<div id="navigation_location">
 	</div>
@@ -29,6 +29,11 @@
 						<td>Birth Date</td>
 						<td><input type="date" size="10" placeholder="MM/DD/YYYY" name="birth_date" required /></td>
 					</tr>
+					<tr>
+						<td>Sex</td>
+						<td><input type="radio" name="gender" value="m" checked="checked" />Male 
+						    <input type="radio" name="gender" value="f" />Female
+						</td>
 				</table>
 			</fieldset>
 		</div>
