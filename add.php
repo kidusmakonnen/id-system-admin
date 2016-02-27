@@ -42,10 +42,6 @@
 				<legend>Contact Info</legend>
 				<table>
 					<tr>
-						<td>Home Address</td>
-						<td><input type="textarea" cols="30" rows="4" /></td>
-					</tr>
-					<tr>
 						<td>Home Phone</td>
 						<td><input type="text" size="10" name="home_phone" /></td>
 					</tr>
@@ -72,7 +68,7 @@
 						<td>Experience</td>
 						<td>
 							<input type="number" name="experience" min='0' value='0'  />
-							<select name="experience_mul">
+							<select>
 								<option>Year(s)</option>
 								<option>Month(s)</option>
 								<option>Day(s)</option>

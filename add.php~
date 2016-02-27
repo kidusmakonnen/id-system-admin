@@ -42,10 +42,6 @@
 				<legend>Contact Info</legend>
 				<table>
 					<tr>
-						<td>Home Address</td>
-						<td><input type="textarea" cols="30" rows="4" /></td>
-					</tr>
-					<tr>
 						<td>Home Phone</td>
 						<td><input type="text" size="10" name="home_phone" /></td>
 					</tr>
@@ -102,7 +98,7 @@
 						<!--<td>
 							<img src="placeholder.jpg" alt="photo thumbnail" width="80px" height="80px" />
 						</td> -->
-						<td><input type="file" value="Upload Photo" id="upload_button" /></td>
+						<td><input type="file" value="Upload Photo" id="upload_button" name="image" /></td>
 					</tr>
 				</table>
 			</fieldset>
