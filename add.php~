@@ -68,7 +68,7 @@
 						<td>Experience</td>
 						<td>
 							<input type="number" name="experience" min='0' value='0'  />
-							<select name="experience_mul">
+							<select>
 								<option>Year(s)</option>
 								<option>Month(s)</option>
 								<option>Day(s)</option>

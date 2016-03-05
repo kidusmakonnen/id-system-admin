@@ -25,7 +25,6 @@ echo $SQL;
 
 if (mysql_query($SQL)) {
 	echo "<h1>Successfully Added</h1>";
-	echo '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='. $EMPLOYEE_ID . '_' . md5('IDS_' . $EMPLOYEE_ID) . '" />';
 } else {
 	echo "<h1>Something went wrong :(</h1>";
 }
@@ -41,7 +40,7 @@ function uploadPhoto() {
 	$target_file = $target_dir . $ROWS . "_" . basename($_FILES['image']['name']);
 
 	if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-		echo "<h1>It worked :D</h1>";
+		createID();
 	} else {
 		echo "<h1>Nope :(</h1>";
 	}
@@ -50,6 +49,18 @@ function uploadPhoto() {
 function getNewImageFileName() {
 	return basename($_FILES['image']['name']);
 }
+
+function createID() {
+	echo "<table>";
+	echo "<tr><td>";
+	echo "Name</td><td> Department </td></tr>"; 
+	echo "<tr><td>" . $_POST['first_name'] . " " . $_POST['last_name'] . "</td>";
+	echo "<td>" . $_POST['department'] . "</td></tr>";
+	echo "<tr><td>Gender</td><td>Hired Date</td></tr>";
+	echo "<tr><td>" . $_POST['gender'] . "</td><td>" . $_POST['hired_date'] . "</td></tr>";
+	echo "<tr><td></td><td>"; 
+	echo '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='. $EMPLOYEE_ID . '_' . md5('IDS_' . $EMPLOYEE_ID) . '" />';
+	echo "</td></tr></table>";
 ?>
 
 

@@ -78,7 +78,7 @@
 					<tr>
 						<td>Hired Department</td>
 						<td>
-							<input type="text" size="20" name="hired_department" />
+							<input type="text" size="20" name="department" />
 						</td>
 					</tr>
 					<tr>
@@ -114,7 +114,7 @@ $SQL = "SELECT * FROM Premises";
 $RESULT = mysql_query($SQL);
 
 while ($row = mysql_fetch_array($RESULT)) {
-	echo "<input type='checkbox' name='premises[]' /> " .$row['Name'] . "<br />";
+	echo "<input type='checkbox' name='premises[]' value='" . $row['Name'] . "' /> " . $row['Name'] . "<br />";
 }
 ?>
 			</fieldset>
