@@ -98,7 +98,7 @@
 						<!--<td>
 							<img src="placeholder.jpg" alt="photo thumbnail" width="80px" height="80px" />
 						</td> -->
-						<td><input type="file" value="Upload Photo" id="upload_button" name="image" /></td>
+						<td><input type="file" value="Upload Photo" id="upload_button" name="image" required/></td>
 					</tr>
 				</table>
 			</fieldset>

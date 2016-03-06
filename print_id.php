@@ -11,8 +11,13 @@ mysql_select_db('test');
 
 $SQL = "INSERT INTO employees values (";
 
-$EMPLOYEE = mysql_fetch_array(mysql_query("SELECT ID FROM EMPLOYEES ORDER BY ID DESC LIMIT 0, 1"));
-$EMPLOYEE_ID = $EMPLOYEE['ID'] + 1;
+$RESULT = mysql_query("SELECT ID FROM EMPLOYEES ORDER BY ID DESC LIMIT 0, 1");
+if ($RESULT) {
+    $EMPLOYEE = mysql_fetch_array($RESULT);
+    $EMPLOYEE_ID = $EMPLOYEE['ID'] + 1;
+} else {
+    $EMPLOYEE_ID = 0;
+}
 
 $SQL .= $EMPLOYEE_ID . ",";
 foreach($_POST as $name => $value) {
