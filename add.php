@@ -84,7 +84,7 @@
 					<tr>
 						<td>Hired Date</td>
 						<td>
-							<input type="text" size="10" name="hired_date" placeholder="MM/DD/YYY" />
+							<input type="date" size="10" name="hired_date" placeholder="MM/DD/YYY" />
 						</td>
 					</tr>
 				</table>
