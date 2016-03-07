@@ -1,3 +1,6 @@
+body {
+    font-family:Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, sans-serif;
+    }
 #main_content {
     margin:auto;
     width:800px;
@@ -14,5 +17,42 @@
     font-size:x-large;
     height:50px;
     font-weight:normal;
-
+    }
+    
+#main_controls {
+    margin:auto;
+    width:900px;
+    min-width:800px;
+    background-color:white;
+    }
+    
+#main {
+    margin:auto;
+    width:900px;
+    min-width:800px;
+    background-color:white;
+    text-align:center;
+    }
+    
+.info_section {
+    font-size:large;
+    margin:auto;
+    }
+    
+.info_section td {
+    padding:10px;
+    }
+    
+#id_card {
+    padding:10px;
+    border:2px solid black;
+    }
+    
+.search_result_item {
+    padding:10px;
+    border:2px dotted #CCC;
+    }
+    
+.search_result_item table td  {
+    padding-left:20px;
     }

@@ -1,5 +1,6 @@
 <html>
 <head>
+<link href="style.css" rel="stylesheet" type="text/css">
 <title>Print ID</title>
 </head>
 <body>
@@ -26,8 +27,9 @@ foreach($_POST as $name => $value) {
 	} else {
 	}
 }
-$SQL .= "'" . getNewImageFileName() . "'";
+$SQL .= "'" . getNewImageFileName($EMPLOYEE_ID) . "'";
 $SQL .= ");";
+echo $SQL;
 
 if (mysql_query($SQL)) {
 	echo "<h1>Successfully Added</h1>";
@@ -48,8 +50,8 @@ function uploadPhoto($id) {
 	}
 }
 
-function getNewImageFileName() {
-	return basename($_FILES['image']['name']);
+function getNewImageFileName($id) {
+	return $id . '_' . basename($_FILES['image']['name']);
 }
 
 if (isset($_POST['premises'])) {
@@ -71,10 +73,11 @@ function premisesIdFromName($name) {
     
 
 function createID($id) {
-	echo "<table>";
+	echo "<table id='id_card'>";
 	echo "<tr>";
 	echo "<td><b>Name</b></td><td><b>Department</b></td>"; 
     echo "<td rowspan='4'>";
+    generateQR($id);
     echo "<img src='tmp_qr/tmp.png' />";
     echo "</td></tr>";
 	echo "<tr>"; 

@@ -1,14 +1,20 @@
+<?php
+mysql_connect('localhost','idsystem','idsystem');
+mysql_select_db('test');
+?>
 <html>
 <head>
+<link href="style.css" rel="stylesheet" type="text/css">
 <title>Add Personnel - ID System</title>
 </head>
-<body>
+<body style='background-image:url("system_images/pattern.png");'>
 
 <form action="print_id.php" method="POST" enctype="multipart/form-data">
 <div id="main_controls">
 	<div id="navigation_location">
 	</div>
 	<div id="form_controls">
+        <h2>Add Personnel</h2>
 		<div class="form_snippet">
 			<fieldset>
 				<legend>Personal Info</legend>
@@ -31,8 +37,8 @@
 					</tr>
 					<tr>
 						<td>Sex</td>
-						<td><input type="radio" name="gender" value="m" checked="checked" />Male 
-						    <input type="radio" name="gender" value="f" />Female
+						<td><input type="radio" name="gender" value="M" checked="checked" />Male 
+						    <input type="radio" name="gender" value="F" />Female
 						</td>
 				</table>
 			</fieldset>
@@ -78,7 +84,14 @@
 					<tr>
 						<td>Hired Department</td>
 						<td>
-							<input type="text" size="20" name="department" />
+                            <select name="department" required>
+                            <?php
+                                $SQL = "SELECT * FROM departments";
+                                $RESULT = mysql_query($SQL);
+                                while ($ROW = mysql_fetch_array($RESULT)) {
+                                    echo "<option value='" . $ROW['ID'] . "'>" . $ROW['Name'] . "</option>";
+                                    }
+                            ?>
 						</td>
 					</tr>
 					<tr>
@@ -106,10 +119,8 @@
 		<div class="form_snippet">
 			<fieldset>
 				<legend>Allowed Into</legend>
-<?php
-mysql_connect('localhost','idsystem','idsystem');
-mysql_select_db('test');
 
+<?php
 $SQL = "SELECT * FROM Premises";
 $RESULT = mysql_query($SQL);
 
