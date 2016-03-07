@@ -28,7 +28,6 @@ foreach($_POST as $name => $value) {
 }
 $SQL .= "'" . getNewImageFileName() . "'";
 $SQL .= ");";
-echo $SQL;
 
 if (mysql_query($SQL)) {
 	echo "<h1>Successfully Added</h1>";
@@ -59,7 +58,6 @@ if (isset($_POST['premises'])) {
     foreach ($premises as $i) {
         $SQL = "INSERT INTO employees_has_premises VALUES ('";
         $SQL .= $EMPLOYEE_ID . "', '" . premisesIdFromName($i) . "')";
-        //echo $SQL;
         mysql_query($SQL);    
     }
     
@@ -67,7 +65,6 @@ if (isset($_POST['premises'])) {
 
 function premisesIdFromName($name) {
     $SQL = "SELECT * FROM premises WHERE Name='" . $name . "'";
-    echo $SQL;
     $PREMISES = mysql_fetch_array(mysql_query($SQL));
     return $PREMISES['ID'];
     }
@@ -75,16 +72,27 @@ function premisesIdFromName($name) {
 
 function createID($id) {
 	echo "<table>";
-	echo "<tr><td>";
-	echo "Name</td><td> Department </td></tr>"; 
-	echo "<tr><td>" . $_POST['first_name'] . " " . $_POST['last_name'] . "</td>";
+	echo "<tr>";
+	echo "<td><b>Name</b></td><td><b>Department</b></td>"; 
+    echo "<td rowspan='4'>";
+    echo "<img src='tmp_qr/tmp.png' />";
+    echo "</td></tr>";
+	echo "<tr>"; 
+    echo "<td>" . $_POST['first_name'] . " " . $_POST['last_name'] . "</td>";
 	echo "<td>" . $_POST['department'] . "</td></tr>";
-	echo "<tr><td>Gender</td><td>Hired Date</td></tr>";
+	echo "<tr>"; 
+    echo "<td><b>Gender</b></td><td><b>Hired Date</b></td></tr>";
 	echo "<tr><td>" . $_POST['gender'] . "</td><td>" . $_POST['hired_date'] . "</td></tr>";
-	echo "<tr><td></td><td>"; 
-	echo '<img src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl='. $id . '_' . md5('IDS_' . $id) . '" />';
-	echo "</td></tr></table>";
+    
+	echo "</table>";
 }
+
+function generateQR($id) {
+    $id_to_encode = $id . '_' . md5('IDS_' . $id);
+    include($_SERVER['DOCUMENT_ROOT'] . '/phpqrcode/qrlib.php');
+    QRcode::png($id_to_encode, 'tmp_qr/tmp.png', 'QR_ECLEVEL_H', 4, 2 );
+    }
+
 ?>
 
 
