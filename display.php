@@ -15,6 +15,21 @@ mysql_select_db('test');
 </div>
 <?php
 
+if (isset($_POST['delete'])) {
+    $SQL = "DELETE FROM employees_has_premises WHERE `Employees_ID Number`='" . $_POST['employeeId'] . "'";
+    if (mysql_query($SQL)) {
+        $SQL = "DELETE FROM employees WHERE ID='" . $_POST['employeeId'] . "'";
+        if (mysql_query($SQL)) {
+            header("Location: index.php");
+            }
+        }
+}
+
+?>
+
+
+<?php
+
 if (isset($_GET['employeeId'])) {
     $id = $_GET['employeeId'];
     $SQL = "SELECT * FROM employees WHERE ID='" . $id . "'";
@@ -71,6 +86,10 @@ EOT;
 <form action="edit.php" method="GET">
 <input type="submit" value="Edit Employee Information"/>
 <?php echo "<input type='hidden' value='" . $ROW['ID'] . "' name='employeeId'/>"; ?>
+</form>
+<form action="" method="POST">
+<?php echo "<input type='hidden' value='" . $ROW['ID'] . "' name='employeeId'/>"; ?>
+<input type="submit" value="Delete Employee Information" name="delete"/>
 </form>
 </div>
 </body>
