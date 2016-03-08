@@ -102,6 +102,9 @@ function generateQR($id) {
 <form method="GET" action="add.php"/>
 <input type="submit" value="Add Another Employee"/>
 </form>
+<form method="GET" action="index.php"/>
+<input type="submit" value="Go Home" />
+</form>
 </div>
 
 

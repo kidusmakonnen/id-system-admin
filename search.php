@@ -11,7 +11,7 @@
 <div id="logo">
 <img src="system_images/logo.png" alt="ID System Logo"><br />
 <form method="POST" action="searchresults.php">
-<input type="text" size="100" name="query" />
+<input type="text" size="100" name="query" placeholder="Enter a query. Leave empty to display all employees." />
 <input type="submit" value="Search"" />
 </form>
 

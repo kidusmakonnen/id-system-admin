@@ -102,7 +102,11 @@ if (isset($_POST['query'])) {
             }
          echo "</table>";
     } else {
-        echo "<h3>No Results :(</h3>";
+        if ($_POST['query'] == "") {
+            echo "<h3>Employee Database Empty. <a href='add.php'>Click here</a> to add new employee.</h3>";
+            } else {
+        echo "<h3>No Results</h3>";
+        }
         }
 } else {
     echo "<h3>Eh</h3>";
