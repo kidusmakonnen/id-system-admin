@@ -73,7 +73,11 @@ echo <<< EOT
 </tr>
 
 <tr>
-<td>Hired Department: $ROW[department]</td>
+EOT;
+
+echo "<td>Hired Department: " . departmentIdToName($ROW['department']) . "</td>";
+echo <<< EOT
+</tr>
 </tr>
 <tr>
 <td>Hired Date: $ROW[hired_date]</td>
@@ -82,6 +86,11 @@ echo <<< EOT
 EOT;
 }
 }
+function departmentIdToName($dept_id) {
+    $SQL = "SELECT * FROM departments WHERE ID='" . $dept_id . "'";
+    $ROW = mysql_fetch_array(mysql_query($SQL));
+    return $ROW['Name'];
+    }
 ?>
 <form action="edit.php" method="GET">
 <input type="submit" value="Edit Employee Information"/>
