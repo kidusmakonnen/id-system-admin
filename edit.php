@@ -18,11 +18,11 @@ mysql_select_db('test');
         $SQL .= "', email='" . $_POST['email'] . "', profession='" . $_POST['profession'] . "', department='" . $_POST['department'];
         $SQL .= "', hired_date='" . $_POST['hired_date'] . "'";
         
-        if (!empty($_FILE['image']['name'])) {
-            $SQL .= ", photo='" . $_POST['photo'] . "'";
+        if (!empty($_FILES['image']['name'])) {
+            $SQL .= ", photo='" . getNewImageFileName($_POST['employeeId']) . "'";
+            echo $SQL;
             uploadPhoto($_POST['employeeId']);
-            }
-            
+            } 
         if(mysql_query($SQL))
         {
             
@@ -39,7 +39,7 @@ mysql_select_db('test');
                 }
             }
             
-            //header("Location: index.php");
+            header("Location: display.php?employeeId=" . $_POST['employeeId']);
             }
     }
     
@@ -49,7 +49,7 @@ mysql_select_db('test');
         $target_file = $target_dir . $id . "_" . basename($_FILES['image']['name']);
 
         if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
-            createID($id);
+            echo "success";
         } else {
             echo "<h1>Nope :(</h1>";
         }

@@ -18,7 +18,13 @@ mysql_select_db('test');
 if (isset($_GET['employeeId'])) {
     $id = $_GET['employeeId'];
     $SQL = "SELECT * FROM employees WHERE ID='" . $id . "'";
-    $ROW = mysql_fetch_array(mysql_query($SQL));
+    $RESULT = mysql_query($SQL);
+    if (!$RESULT || mysql_num_rows($RESULT) == 0) {
+        echo "<h1>Employee record not found!</h1>";
+        exit;
+        }
+    else {
+    $ROW = mysql_fetch_array($RESULT);
     echo "<h1>Employee Information of " . $ROW['first_name'] . " " . $ROW['last_name'] . "</h1>";    
 echo <<< EOT
 <table class='info_section'>
@@ -59,6 +65,7 @@ echo <<< EOT
 </tr>
 </table>
 EOT;
+}
 }
 ?>
 <form action="edit.php" method="GET">
