@@ -11,8 +11,7 @@ mysql_select_db('test');
 
 <div id="main">
 <div id="navigation_location">
-<a href="index.php" >Home</a> > <a href="search.php">Search</a> 
-        < <a href="javascript:history.back()">Search Results</a> < Display
+<a href="index.php" >Home</a> > <a href="search.php">Search</a>  > Display
 </div>
 <?php
 

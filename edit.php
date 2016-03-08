@@ -10,15 +10,73 @@ mysql_select_db('test');
 <body style='background-image:url("system_images/pattern.png");'>
 
 <?php
+    if (isset($_POST['edit'])) {
+        $employee_to_edit = $_POST['employeeId'];
+        $SQL = "UPDATE employees SET first_name='" . $_POST['first_name'] . "', last_name='" . $_POST['last_name'];
+        $SQL .= "', birth_place='" . $_POST['birth_place'] . "', birth_date='" . $_POST['birth_date'];
+        $SQL .= "', gender='" . $_POST['gender'] . "', home_phone='" . $_POST['home_phone'] . "', mobile_phone='" . $_POST['mobile_phone'];
+        $SQL .= "', email='" . $_POST['email'] . "', profession='" . $_POST['profession'] . "', department='" . $_POST['department'];
+        $SQL .= "', hired_date='" . $_POST['hired_date'] . "'";
+        
+        if (!empty($_FILE['image']['name'])) {
+            $SQL .= ", photo='" . $_POST['photo'] . "'";
+            uploadPhoto($_POST['employeeId']);
+            }
+            
+        if(mysql_query($SQL))
+        {
+            
+            //update premises access 
+            $SQL = "DELETE FROM employees_has_premises WHERE `Employees_ID Number`='" . $_POST['employeeId'] . "'";
+            mysql_query($SQL);
+            if (isset($_POST['premises'])) {
+                $premises = $_POST['premises'];
+                
+                foreach ($premises as $i) {
+                    $SQL = "INSERT INTO employees_has_premises VALUES ('";
+                    $SQL .= $_POST['employeeId'] . "', '" . premisesIdFromName($i) . "')";
+                    mysql_query($SQL);    
+                }
+            }
+            
+            //header("Location: index.php");
+            }
+    }
+    
+    function uploadPhoto($id) {
+        
+        $target_dir = "employee_photos/";
+        $target_file = $target_dir . $id . "_" . basename($_FILES['image']['name']);
+
+        if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+            createID($id);
+        } else {
+            echo "<h1>Nope :(</h1>";
+        }
+    }
+
+    function getNewImageFileName($id) {
+        return $id . '_' . basename($_FILES['image']['name']);
+    }
+    
+    
+function premisesIdFromName($name) {
+    $SQL = "SELECT * FROM premises WHERE Name='" . $name . "'";
+    $PREMISES = mysql_fetch_array(mysql_query($SQL));
+    return $PREMISES['ID'];
+    }
+?>
+
+<?php
     if (isset($_GET['employeeId'])) {
         $SQL = "SELECT * FROM employees WHERE ID='" . $_GET['employeeId'] . "'";
         $ROW = mysql_fetch_array(mysql_query($SQL));
 echo <<< EOT
-<form action='print_id.php' method='POST' enctype='multipart/form-data'>
+<form action='' method='POST' enctype='multipart/form-data'>
 <div id='main_controls'>
     <div id="navigation_location">
         <a href="index.php" >Home</a> > <a href="search.php">Search</a> 
-        < <a href="javascript:history.back()">Display</a> < Edit
+        > <a href="display.php?employeeId=$_GET[employeeId]">Display</a> > Edit
     </div>
 	<div id='navigation_location'>
 	</div>
@@ -48,11 +106,11 @@ echo <<< EOT
 						<td>Sex</td>
 EOT;
                         if ($ROW['gender'] == 'M' || $ROW['gender'] == 'm') {
-                            echo "<td><input type='radio' name='gender' value='m' checked='checked' />Male ";
-						    echo "<input type='radio' name='gender' value='f' />Female </td>";
+                            echo "<td><input type='radio' name='gender' value='M' checked='checked' />Male ";
+						    echo "<input type='radio' name='gender' value='F' />Female </td>";
                         } else {
-                            echo "<td><input type='radio' name='gender' value='m'/>Male ";
-						    echo "<input type='radio' name='gender' value='f' checked='checked' />Female </td>";
+                            echo "<td><input type='radio' name='gender' value='M'/>Male ";
+						    echo "<input type='radio' name='gender' value='F' checked='checked' />Female </td>";
                         }
 echo <<< EOT
 				</table>
@@ -148,7 +206,8 @@ while ($premises_row = mysql_fetch_array($RESULT)) {
 echo <<< EOT
 			</fieldset>
 		</div>
-		<input type="submit" value="Save Changes" />
+        <input type='hidden' value=$_GET[employeeId] name='employeeId' />
+		<input type='submit' value='Save Changes' name='edit' />
 	</div>
 </div>
 EOT;
