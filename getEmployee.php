@@ -30,13 +30,18 @@ if ($remote_data && $premises_id && $comp == md5("IDS_" . $id)) {
     
     $json_data['full_name'] = $full_name;
     $json_data['gender'] = $gender;
-    $json_data['department'] = $department;
+    $json_data['department'] = departmentIdToName($department);
     $json_data['photo'] = $photo;
     $json_data['allowed'] = $allowed;
     
     echo json_encode($json_data);
 } else {
     echo "Invalid request";
+    }
+function departmentIdToName($dept_id) {
+    $SQL = "SELECT * FROM departments WHERE ID='" . $dept_id . "'";
+    $ROW = mysql_fetch_array(mysql_query($SQL));
+    return $ROW['Name'];
     }
 
 ?>

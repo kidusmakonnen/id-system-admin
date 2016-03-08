@@ -100,6 +100,11 @@ function departmentIdToName($dept_id) {
 <?php echo "<input type='hidden' value='" . $ROW['ID'] . "' name='employeeId'/>"; ?>
 <input type="submit" value="Delete Employee Information" name="delete"/>
 </form>
+<form action="reprint_id.php" method="POST">
+<?php echo "<input type='hidden' value='" . $ROW['ID'] . "' name='employeeId'/>"; ?>
+<input type="submit" value="Re-print ID Card" />
+</form>
+
 </div>
 </body>
 </html>
