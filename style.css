@@ -6,6 +6,10 @@ body {
     width:800px;
     }
     
+#main_content li {
+    list-style-type:none;
+    }
+    
 #main_content #logo {
     text-align: center;
     vertical-align: center;

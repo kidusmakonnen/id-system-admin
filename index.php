@@ -6,7 +6,7 @@
 <body>
 <div id="main_content">
 <div id="navigation_location">
-Home
+<a href="about.php">About</a> | Home
 </div>
 <div id="logo">
 <img src="system_images/logo.png" alt="ID System Logo"><br />
