@@ -12,7 +12,8 @@ mysql_select_db('test');
 <form action="print_id.php" method="POST" enctype="multipart/form-data">
 <div id="main_controls">
 	<div id="navigation_location">
-	</div>
+        <a href="index.php" >Home</a> > Add Employee
+    </div>
 	<div id="form_controls">
         <h2>Add Personnel</h2>
 		<div class="form_snippet">
@@ -70,17 +71,7 @@ mysql_select_db('test');
 						<td>Profession</td>
 						<td><input type="text" size="30" name="profession" /></td>
 					</tr>
-					<tr>
-						<td>Experience</td>
-						<td>
-							<input type="number" name="experience" min='0' value='0'  />
-							<select>
-								<option>Year(s)</option>
-								<option>Month(s)</option>
-								<option>Day(s)</option>
-							</select>
-						</td>
-					</tr>
+					
 					<tr>
 						<td>Hired Department</td>
 						<td>

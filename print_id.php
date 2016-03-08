@@ -29,7 +29,7 @@ foreach($_POST as $name => $value) {
 }
 $SQL .= "'" . getNewImageFileName($EMPLOYEE_ID) . "'";
 $SQL .= ");";
-echo $SQL;
+
 
 if (mysql_query($SQL)) {
 	echo "<h1>Successfully Added</h1>";
@@ -97,7 +97,12 @@ function generateQR($id) {
     }
 
 ?>
-
+<div>
+<br /> <br />
+<form method="GET" action="add.php"/>
+<input type="submit" value="Add Another Employee"/>
+</form>
+</div>
 
 
 </body>

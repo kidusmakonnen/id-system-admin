@@ -48,6 +48,9 @@ body {
     border:2px solid black;
     }
     
+#navigation_location {
+    text-align:right;
+    }
 .search_result_item {
     padding:10px;
     border:2px dotted #CCC;
@@ -55,4 +58,11 @@ body {
     
 .search_result_item table td  {
     padding-left:20px;
+    }
+
+.search_resulst_item  img{
+    width:auto;
+    height:auto;
+    max-height:20%;
+    max-width:30%;
     }

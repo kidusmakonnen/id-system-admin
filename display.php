@@ -8,7 +8,12 @@ mysql_select_db('test');
 <title>Add Personnel - ID System</title>
 </head>
 <body style='background-image:url("system_images/pattern.png");'>
+
 <div id="main">
+<div id="navigation_location">
+<a href="index.php" >Home</a> > <a href="search.php">Search</a> 
+        < <a href="javascript:history.back()">Search Results</a> < Display
+</div>
 <?php
 
 if (isset($_GET['employeeId'])) {
@@ -46,9 +51,7 @@ echo <<< EOT
 <tr>
 <td>Profession: $ROW[profession]</td>
 </tr>
-<tr>
-<td>Experience: $ROW[experience]</td>
-</tr>
+
 <tr>
 <td>Hired Department: $ROW[department]</td>
 </tr>
