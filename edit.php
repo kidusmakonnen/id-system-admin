@@ -23,6 +23,8 @@ mysql_select_db('test');
             echo $SQL;
             uploadPhoto($_POST['employeeId']);
             } 
+            
+        $SQL .= " WHERE ID='" . $_POST['employeeId'] . "'";
         if(mysql_query($SQL))
         {
             
