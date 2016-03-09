@@ -17,6 +17,20 @@ body {
     height: 100%;
     }
     
+#main_content table {
+    border-collapse:collapse;
+    width: 100%;
+    }
+    
+#main_content table th, td {
+    text-align:left;
+    padding:5px;
+    }
+    
+#main_content table tr:nth-child(even) {
+    background-color:#EEE;
+    }
+    
 .input_button {
     font-size:x-large;
     height:50px;

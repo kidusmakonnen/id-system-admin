@@ -48,6 +48,17 @@ if ($remote_data && $premises_id && $comp == md5("IDS_" . $id)) {
     $json_data['allowed'] = $allowed;
     
     echo json_encode($json_data);
+    
+    //log to database
+    if ($allowed) {
+        $allowed = 1;
+    } else {
+        $allowed = 0;
+        }
+    $SQL = "INSERT INTO logs (EmployeeID, PremisesID, AccessDate, EntryAccess) VALUES ('";
+    $SQL .= $id . "', '" . $premises_id . "', '" . date('Y-m-d H:i:s') . "', " . $allowed . ")";
+    mysql_query($SQL);
+
 } else {
     echo "Invalid QR Code. Please contact your system administrator and get a replacement.";
     }
