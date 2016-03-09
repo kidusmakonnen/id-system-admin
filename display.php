@@ -45,7 +45,7 @@ echo <<< EOT
 <table class='info_section'>
 <tr>
 <td>First Name: $ROW[first_name]</td>
-<td rowspan='5'><img src='employee_photos/$ROW[photo]' height='30%'></td>
+<td style='height:200px' rowspan='5'><img src='employee_photos/$ROW[photo]' style='max-height:100%; max-width:100%'></td>
 </tr>
 <tr>
 <td>Last Name: $ROW[last_name]</td>

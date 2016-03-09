@@ -116,8 +116,8 @@ function generateSearchResultItem($ROW) {
     echo "<div class='search_result_item'>";
     echo "<table>";
     echo "<tr>";
-    echo "<td rowspan='4'>";
-    echo "<a href='display.php?employeeId=" . $ROW['ID'] . "'><img src='employee_photos/" . $ROW['photo'] . "' height='20%'/></a>";
+    echo "<td style='height:150px' rowspan='4'>";
+    echo "<a href='display.php?employeeId=" . $ROW['ID'] . "'><img src='employee_photos/" . $ROW['photo'] . "' style='max-width:100%;max-height:100%'/></a>";
     echo "</td>";
     echo "<td>Name</td><td>Department</td>"; 
     echo "</tr>";
