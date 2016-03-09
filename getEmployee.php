@@ -6,6 +6,19 @@ if (isset($_GET['premisesId'])) $premises_id = $_GET['premisesId'];
 
 list($id, $comp) = explode('_', $remote_data);
 
+$SQL = "SELECT * FROM premises WHERE ID='" . $premises_id . "'";
+if (mysql_num_rows(mysql_query($SQL)) == 0) {
+    echo "Invalid premises ID. Please check your settings.";
+    exit;
+    }
+    
+$SQL = "SELECT * FROM employees WHERE ID='" . $id . "'";
+if (mysql_num_rows(mysql_query($SQL)) == 0) {
+    echo "ID Card no longer valid. Contact system administrator.";
+    exit;
+    }
+
+
 if ($remote_data && $premises_id && $comp == md5("IDS_" . $id)) {
     $SQL = "SELECT * FROM employees WHERE ID='" . $id . "'";
     $RESULT = mysql_query($SQL);
@@ -36,7 +49,7 @@ if ($remote_data && $premises_id && $comp == md5("IDS_" . $id)) {
     
     echo json_encode($json_data);
 } else {
-    echo "Invalid request";
+    echo "Invalid QR Code. Please contact your system administrator and get a replacement.";
     }
 function departmentIdToName($dept_id) {
     $SQL = "SELECT * FROM departments WHERE ID='" . $dept_id . "'";
