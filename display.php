@@ -5,7 +5,7 @@ mysql_select_db('test');
 <html>
 <head>
 <link href="style.css" rel="stylesheet" type="text/css">
-<title>Add Personnel - ID System</title>
+<title>Display Personnel - ID System</title>
 </head>
 <body style='background-image:url("system_images/pattern.png");'>
 

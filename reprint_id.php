@@ -3,6 +3,7 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div id="main_content">
 <div id="navigation_location">
 <a href="index.php">Home</a>
 </div>
@@ -49,5 +50,6 @@ function departmentIdToName($dept_id) {
     return $ROW['Name'];
     }
 ?>
+</div>
 </body>
 </html>

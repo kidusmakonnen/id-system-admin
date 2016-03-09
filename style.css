@@ -17,17 +17,17 @@ body {
     height: 100%;
     }
     
-#main_content table {
+#main_content  #logs {
     border-collapse:collapse;
     width: 100%;
     }
     
-#main_content table th, td {
+#main_content  #logs th, td {
     text-align:left;
     padding:5px;
     }
     
-#main_content table tr:nth-child(even) {
+#main_content  #logs tr:nth-child(even) {
     background-color:#EEE;
     }
     

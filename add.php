@@ -34,7 +34,7 @@ mysql_select_db('test');
 					</tr>
 					<tr>
 						<td>Birth Date</td>
-						<td><input type="date" size="10" placeholder="MM/DD/YYYY" name="birth_date" required /></td>
+						<td><input type="date" size="10" placeholder="YYYY-MM-DD" name="birth_date" required /></td>
 					</tr>
 					<tr>
 						<td>Sex</td>
@@ -88,7 +88,7 @@ mysql_select_db('test');
 					<tr>
 						<td>Hired Date</td>
 						<td>
-							<input type="date" size="10" name="hired_date" placeholder="MM/DD/YYY" />
+							<input type="date" size="10" name="hired_date" placeholder="YYYY-MM-DD" />
 						</td>
 					</tr>
 				</table>

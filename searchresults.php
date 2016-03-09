@@ -102,7 +102,7 @@ if (isset($_POST['query'])) {
             }
          echo "</table>";
     } else {
-        if ($_POST['query'] == "") {
+        if ($_POST['query'] == "" && mysql_num_rows(mysql_query("SELECT * FROM employees")) == 0) {
             echo "<h3>Employee Database Empty. <a href='add.php'>Click here</a> to add new employee.</h3>";
             } else {
         echo "<h3>No Results</h3>";

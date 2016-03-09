@@ -15,7 +15,7 @@ mysql_select_db('test');
 
 <h3>ID System Entry Access Logs</h3>
 
-<table border=1>
+<table id="logs" border=1>
 <tr>
     <th>Log No.</th>
     <th>Employee Name</th>
@@ -28,7 +28,7 @@ $SQL = "SELECT * FROM logs ORDER BY AccessDate ASC";
 $RESULT = mysql_query($SQL);
 while ($ROW = mysql_fetch_array($RESULT)) {
     echo "<tr><td>" . $ROW['ID'] . "</td>";
-    echo "<td><a href='display.php?employeeId=" . $ROW['EmployeeID'] . "'>" . employeeNameFromId($ROW['EmployeeID']) . "</a></td>";
+    echo "<td>" . employeeNameFromId($ROW['EmployeeID']) . "</td>";
     echo "<td>" . premisesNameFromId($ROW['PremisesID']) . "</td>";
     echo "<td>" . $ROW['AccessDate'] . "</td>";
     echo "<td>" . styledEntryAccess($ROW['EntryAccess']) . "</td></tr>";
@@ -37,8 +37,13 @@ while ($ROW = mysql_fetch_array($RESULT)) {
     
 function employeeNameFromId($id) {
     $ROW = mysql_fetch_array(mysql_query("SELECT * FROM employees WHERE ID='" . $id . "'"));
-    return $ROW['first_name'] . " " . $ROW['last_name'];
+    $full_name = $ROW['first_name'] . " " . $ROW['last_name'];
+    if (trim($full_name) == "") {
+        return "<span style='color:#999;'><strike>Employee Info Deleted</strike></span>";
+    } else {
+        return "<a href='display.php?employeeId=" . $id . "'>" . $full_name . "</a>";
     }
+}
     
 function premisesNameFromId($id) {
     $ROW = mysql_fetch_array(mysql_query("SELECT * FROM premises WHERE ID='" . $id . "'"));

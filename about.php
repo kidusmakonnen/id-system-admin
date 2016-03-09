@@ -11,14 +11,15 @@
 <div id="logo">
 <img src="system_images/logo.png" alt="ID System Logo"><br />
 <h2>Group Members:</h2>
-<ul>
-<li>Kidus Makonnen</li>
-<li>Tibebe Solomon</li>
-<li>Fraol Chala</li>
-<li>Eyob Solomon</li>
-<li>Dereje Mengistu</li>
-</ul>
 
+Kidus Makonnen<br />
+Tibebe Solomon<br />
+Fraol Chala<br />
+Eyob Solomon<br />
+Dereje Mengistu<br />
+<br />
+<b>March 2016. Addis Ababa Institute of Technology.</b><br />
+<b>Submitted to: Lisanu T.</b>
 </div>
 </body>
 </html>
