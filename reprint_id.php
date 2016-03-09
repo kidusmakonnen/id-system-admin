@@ -3,6 +3,9 @@
 <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div id="navigation_location">
+<a href="index.php">Home</a>
+</div>
 <?php
 mysql_connect('localhost','idsystem','idsystem');
 mysql_select_db('test');

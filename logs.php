@@ -5,7 +5,7 @@ mysql_select_db('test');
 <html>
 <head>
 <link href="style.css" rel="stylesheet" type="text/css">
-<title>Search</title>
+<title>Logs</title>
 </head>
 <body>
 <div id="main_content">

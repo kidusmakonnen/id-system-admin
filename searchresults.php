@@ -108,9 +108,7 @@ if (isset($_POST['query'])) {
         echo "<h3>No Results</h3>";
         }
         }
-} else {
-    echo "<h3>Eh</h3>";
-    }
+} 
     
 function generateSearchResultItem($ROW) {
     echo "<div class='search_result_item'>";

@@ -1,7 +1,7 @@
 <html>
 <head>
 <link href="style.css" rel="stylesheet" type="text/css">
-<title>Search</title>
+<title>About Us</title>
 </head>
 <body>
 <div id="main_content">
