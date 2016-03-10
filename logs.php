@@ -1,6 +1,5 @@
 <?php
-mysql_connect('localhost','idsystem','idsystem');
-mysql_select_db('test');
+include("db_conf/db_conf.php");
 ?>
 <html>
 <head>
@@ -13,7 +12,7 @@ mysql_select_db('test');
 <a href="index.php">Home</a>
 </div>
 
-<h3>ID System Entry Access Logs</h3>
+<h3>ID System Entry Access Log</h3>
 
 <table id="logs" border=1>
 <tr>

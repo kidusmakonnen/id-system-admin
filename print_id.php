@@ -1,3 +1,6 @@
+<?php
+include("db_conf/db_conf.php");
+?>
 <html>
 <head>
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -6,9 +9,6 @@
 <body>
 
 <?php
-
-$conn = mysql_connect('localhost', 'idsystem', 'idsystem');
-mysql_select_db('test');
 
 $SQL = "INSERT INTO employees values (";
 

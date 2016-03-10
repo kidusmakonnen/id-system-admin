@@ -1,6 +1,5 @@
 <?php
-mysql_connect('localhost', 'idsystem', 'idsystem');
-mysql_select_db('test');
+include("db_conf/db_conf.php");
 ?>
 <html>
 <head>

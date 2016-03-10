@@ -1,6 +1,8 @@
 <?php
-$conn = mysql_connect('localhost', 'idsystem', 'idsystem');
-mysql_select_db('test');
+include("db_conf/db_conf.php");
+?>
+
+<?php
 $remote_data = null;
 $premises_id = null;
 

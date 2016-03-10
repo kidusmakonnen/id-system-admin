@@ -1,3 +1,6 @@
+<?php
+include("db_conf/db_conf.php");
+?>
 <html>
 <head>
 <link href="style.css" rel="stylesheet" type="text/css">
@@ -8,8 +11,6 @@
 <a href="index.php">Home</a>
 </div>
 <?php
-mysql_connect('localhost','idsystem','idsystem');
-mysql_select_db('test');
 
 if (isset($_POST['employeeId'])) {
     $id = $_POST['employeeId'];
