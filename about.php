@@ -16,7 +16,6 @@ Kidus Makonnen<br />
 Tibebe Solomon<br />
 Fraol Chala<br />
 Eyob Solomon<br />
-Dereje Mengistu<br />
 <br />
 <b>March 2016. Addis Ababa Institute of Technology.</b><br />
 <b>Submitted to: Lisanu T.</b>
